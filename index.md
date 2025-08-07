@@ -8,8 +8,9 @@ I am a Ph.D. student at the Department of Computer Science, University of Copenh
 
 ## Research Areas
 
-- **Stochastic Processes:** stochastic differential equations, conditional diffusion processes.
-- **Machine Learning:** machine learning theory, Bayesian inference, deep generative models.
+- **Statistical machine learning:** Bayesian inference, parameter estimations.
+- **Stochastic Processes:** diffusion processes, stochastic differential equations.
+- **Deep Learning:** diffusion models, neural differential equations.
 
 <!-- ## News
 
