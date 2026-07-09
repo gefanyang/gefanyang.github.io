@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import { profile } from "../data/profile";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = `${profile.title} | ${profile.affiliation}`,
+  description = profile.description,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={profile.keywords} />
+    <link rel="canonical" href={profile.canonical} />
+    <link rel="icon" media="(prefers-color-scheme: dark)" href={profile.faviconDark} type="image/png" />
+    <link rel="icon" media="(prefers-color-scheme: light)" href={profile.favicon} type="image/png" />
+    <link rel="icon" href={profile.favicon} type="image/png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

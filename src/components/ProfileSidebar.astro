@@ -1,0 +1,23 @@
+---
+import { profile } from "../data/profile";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<header class="profile-sidebar">
+  <a class="avatar" href="/" aria-label="Gefan Yang home">
+    <img src={profile.avatar} alt="Gefan Yang" width="220" height="220" />
+  </a>
+
+  <h1>{profile.title}</h1>
+
+  <p class="position">{profile.position}</p>
+  <p class="affiliation">{profile.affiliation}</p>
+  <p class="email">{profile.email}</p>
+
+  <nav class="social-icons" aria-label="Social links">
+    <SocialIcon href={profile.googleScholar} label="Google Scholar" icon="scholar" />
+    <SocialIcon href={profile.cvLink} label="CV" icon="cv" />
+    <SocialIcon href={profile.github} label="GitHub" icon="github" />
+    <SocialIcon href={profile.linkedin} label="LinkedIn" icon="linkedin" />
+  </nav>
+</header>

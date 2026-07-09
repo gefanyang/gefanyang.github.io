@@ -2,3 +2,7 @@
 vendor/
 _site/
 .sass-cache/
+node_modules/
+dist/
+.astro/
+npm-debug.log*
