@@ -1,5 +1,4 @@
 main:
-
   - title: "Neural Guided Diffusion Bridges"
     authors: <strong>Gefan Yang</strong>, Frank van der Meulen, Stefan Sommer
     conference_short: ICML
