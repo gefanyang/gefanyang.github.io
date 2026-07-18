@@ -28,5 +28,16 @@ const {
   </head>
   <body>
     <slot />
+    <script>
+      document.querySelectorAll("[data-overflow]").forEach((overflow) => {
+        const collapseButton = overflow.querySelector("[data-collapse]");
+        const summary = overflow.querySelector("summary");
+
+        collapseButton?.addEventListener("click", () => {
+          overflow.removeAttribute("open");
+          summary?.focus();
+        });
+      });
+    </script>
   </body>
 </html>

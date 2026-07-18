@@ -1,12 +1,42 @@
 ---
-import { publications } from "../data/publications";
+import { preprints, publications } from "../data/publications";
 import PublicationItem from "./PublicationItem.astro";
+
+const newestFirst = <T extends { publishedAt: string }>(items: T[]) =>
+  [...items].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
+
+const sortedPublications = newestFirst(publications);
+const topPublications = sortedPublications.slice(0, 3);
+const remainingPublications = sortedPublications.slice(3);
+const sortedPreprints = newestFirst(preprints);
 ---
 
-<h2 id="publications" class="publications-heading">Publications</h2>
+<section class="publication-section" aria-labelledby="publications">
+  <h2 id="publications" class="publication-section-title">Publications</h2>
 
-<section class="publications" aria-labelledby="publications">
-  <ol class="bibliography">
-    {publications.map((publication) => <PublicationItem publication={publication} />)}
-  </ol>
+  <div class="publications">
+    <ol class="bibliography">
+      {topPublications.map((publication) => <PublicationItem publication={publication} />)}
+    </ol>
+  </div>
+
+  <details class="publication-overflow" data-overflow>
+    <summary aria-label="Show remaining publications">...</summary>
+    <ol class="bibliography">
+      {remainingPublications.map((publication) => <PublicationItem publication={publication} />)}
+    </ol>
+    <button class="overflow-collapse" type="button" data-collapse>Collapse</button>
+  </details>
+</section>
+
+<section class="publication-section" aria-labelledby="preprints">
+  <h2 id="preprints" class="publication-section-title">Preprints</h2>
+
+  <details class="publication-overflow" data-overflow>
+    <summary aria-label="Show preprints">...</summary>
+    <ol class="bibliography">
+      {sortedPreprints.map((publication) => <PublicationItem publication={publication} />)}
+    </ol>
+    <button class="overflow-collapse" type="button" data-collapse>Collapse</button>
+  </details>
 </section>

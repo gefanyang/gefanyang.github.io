@@ -1,5 +1,6 @@
 ---
 import { profile } from "../data/profile";
+import News from "./News.astro";
 import SocialIcon from "./SocialIcon.astro";
 ---
 
@@ -20,4 +21,6 @@ import SocialIcon from "./SocialIcon.astro";
     <SocialIcon href={profile.github} label="GitHub" icon="github" />
     <SocialIcon href={profile.linkedin} label="LinkedIn" icon="linkedin" />
   </nav>
+
+  <News />
 </header>

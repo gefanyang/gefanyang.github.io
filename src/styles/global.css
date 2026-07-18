@@ -9,7 +9,6 @@
   --color-link: #3399cc;
   --color-link-hover: #006699;
   --color-border: #000000;
-  --color-badge: #002d72;
   --color-note: #e74d3c;
 }
 
@@ -22,7 +21,6 @@
     --color-link: #3eb7f0;
     --color-link-hover: #91d8f7;
     --color-border: #ffffff;
-    --color-badge: #2496cb;
   }
 }
 
@@ -159,18 +157,164 @@ strong {
   fill: currentColor;
 }
 
+.news {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.news h2 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.news-timeline {
+  margin-left: 0.35rem;
+  padding-left: 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+.news-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news-item {
+  position: relative;
+  padding: 0 0 1.15rem 0.35rem;
+}
+
+.news-item:last-child {
+  padding-bottom: 0;
+}
+
+.news-item::before {
+  position: absolute;
+  top: 0.35rem;
+  left: -1.3rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 2px solid var(--color-background);
+  border-radius: 9999px;
+  background: var(--color-primary);
+  content: "";
+}
+
+.news-item time {
+  display: block;
+  color: var(--color-muted);
+  font-family: "Ubuntu Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.news-item p {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.news-overflow {
+  margin: -0.25rem 0 0;
+}
+
+.news-overflow summary {
+  width: fit-content;
+  margin-left: 0.35rem;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  line-height: 1;
+  list-style: none;
+}
+
+.news-overflow summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-overflow[open] summary,
+.publication-overflow[open] summary {
+  display: none;
+}
+
+.news-overflow[open] {
+  margin-top: 0;
+}
+
+.news-overflow[open] .news-list {
+  padding-top: 1.15rem;
+}
+
 .content {
   float: right;
   width: 650px;
   padding-bottom: 50px;
 }
 
-.publications-heading {
-  margin: 2px 0 -15px;
+.publication-section {
+  margin-top: 2rem;
+}
+
+.publication-section + .publication-section {
+  margin-top: 2.5rem;
+}
+
+.publication-section-title {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+  font-size: 1.57rem;
+  font-weight: 500;
+  line-height: 1.1;
 }
 
 .publications {
-  margin-top: 2rem;
+  margin: 0;
+}
+
+.publication-overflow {
+  margin-top: 0.25rem;
+}
+
+.publication-overflow summary {
+  width: fit-content;
+  margin-left: 15px;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  line-height: 1;
+  list-style: none;
+}
+
+.publication-overflow summary::-webkit-details-marker {
+  display: none;
+}
+
+.overflow-collapse {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.publication-overflow[open] .overflow-collapse {
+  display: inline-block;
+  margin-top: -0.25rem;
+  margin-left: 15px;
+}
+
+.news-overflow[open] .overflow-collapse {
+  display: inline-block;
+  margin-top: 0.75rem;
+  margin-left: 0.35rem;
+}
+
+.overflow-collapse:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
 }
 
 .bibliography {
@@ -192,21 +336,6 @@ strong {
 
 .publication-venue {
   margin-top: 0.1rem;
-}
-
-.badge {
-  display: inline-block;
-  margin-left: 0.35rem;
-  padding: 0.25em 0.4em;
-  border-radius: 0.125rem;
-  background: var(--color-badge);
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  color: #ffffff;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  vertical-align: baseline;
-  white-space: nowrap;
 }
 
 .publication-links {
@@ -251,6 +380,12 @@ strong {
 
   .profile-sidebar {
     margin-bottom: 2rem;
+  }
+
+  .news {
+    max-width: 34rem;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

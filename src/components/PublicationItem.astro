@@ -18,12 +18,11 @@ const titleHref = publication.pdf ?? publication.page ?? publication.code ?? "#"
   <div class="publication-authors" set:html={publication.authorsHtml}></div>
   <div class="publication-venue">
     <em set:html={publication.conference}></em>
-    {publication.conferenceShort && <abbr class="badge">{publication.conferenceShort}</abbr>}
   </div>
   <div class="publication-links">
     {publication.pdf && <a class="pub-button" href={publication.pdf} target="_blank" rel="noopener noreferrer">PDF</a>}
     {publication.code && <a class="pub-button" href={publication.code} target="_blank" rel="noopener noreferrer">Code</a>}
-    {publication.page && <a class="pub-button" href={publication.page} target="_blank" rel="noopener noreferrer">Project Page</a>}
+    {publication.page && <a class="pub-button" href={publication.page} target="_blank" rel="noopener noreferrer">{publication.pageLabel ?? "Proceedings"}</a>}
     {publication.bibtex && <a class="pub-button" href={publication.bibtex} target="_blank" rel="noopener noreferrer">BibTex</a>}
     {publication.notes && <strong class="publication-note"><i>{publication.notes}</i></strong>}
   </div>

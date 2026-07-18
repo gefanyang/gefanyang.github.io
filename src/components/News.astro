@@ -1,0 +1,41 @@
+---
+import { news } from "../data/news";
+
+const sortedNews = [...news].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
+const topNews = sortedNews.slice(0, 3);
+const remainingNews = sortedNews.slice(3);
+---
+
+<section class="news" aria-labelledby="news-heading">
+  <h2 id="news-heading">News</h2>
+
+  <div class="news-timeline">
+    <ol class="news-list">
+      {topNews.map((item) => (
+        <li class="news-item">
+          <time>{item.date}</time>
+          <p>
+            <a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a> was accepted to {item.venue}.
+          </p>
+        </li>
+      ))}
+    </ol>
+
+    {remainingNews.length > 0 && (
+      <details class="news-overflow" data-overflow>
+        <summary aria-label="Show older news">...</summary>
+        <ol class="news-list">
+          {remainingNews.map((item) => (
+            <li class="news-item">
+              <time>{item.date}</time>
+              <p>
+                <a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a> was accepted to {item.venue}.
+              </p>
+            </li>
+          ))}
+        </ol>
+        <button class="overflow-collapse" type="button" data-collapse>Collapse</button>
+      </details>
+    )}
+  </div>
+</section>
